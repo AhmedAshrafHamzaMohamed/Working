@@ -26,7 +26,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false, unique = true)
-    private String userName;
+    private String username;
     @Column(nullable = false, unique = true)
     private String email;
     @Column(nullable = false)
@@ -44,13 +44,8 @@ public class User implements UserDetails {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    public String getUserName() {
-        return userName;
-    }
-
     public void setUserName(String username) {
-        this.userName = username;
+        this.username = username;
     }
 
     public String getEmail() {
@@ -81,7 +76,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.userName;
+        return this.username;
     }
 
     @Override
@@ -102,5 +97,12 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public User(String name, String m, String p, List<Role> r) {
+        this.username=name;
+        this.email=m;
+        this.password=p;
+        this.authorities=r;
     }
 }

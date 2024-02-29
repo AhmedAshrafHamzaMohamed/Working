@@ -24,11 +24,12 @@ public class userservice implements UserDetailsService  {
         User user=ur.findUserByName(username);
         System.out.println(user);
         //if user==null || user.getPassword()!=
-        if(!username.equals("ahmeds"))throw new  UsernameNotFoundException("Not ahmed");
+        //if(!username.equals("ahmeds"))throw new  UsernameNotFoundException("Not ahmed");
         
         List<Role> roles=new ArrayList<>();
         roles.add(new Role(1,"USER"));
-        return new User(1,"ahmeds","mail",encoder.encode("password"),roles);
+        //return new User(1,"ahmeds","mail",encoder.encode("password"),roles);
+        return user;
     }
   
     
